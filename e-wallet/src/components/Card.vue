@@ -1,7 +1,7 @@
 <template>
   <article class="card" :class="userCard.vendor">
     <header>
-      <img src="../../assets/chip-light.svg" alt="chip" />
+      <img src="../../assets/chip-light.svg" alt="chip" class="chip" />
       <img
         :src="require(`../../assets/vendor-${userCard.vendor}.svg`)"
         :alt="vendor"
@@ -83,6 +83,10 @@ export default {
     grid-column: auto/span 2;
     grid-row: auto/span 2;
     justify-content: space-between;
+
+    .chip {
+      margin-top: auto;
+    }
   }
 
   .info,
