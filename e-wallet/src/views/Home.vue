@@ -1,10 +1,10 @@
 <template>
-  <div class="home-view">
+  <main id="home">
     <Top h1="E-WALLET" cardType="ACTIVE CARD" />
     <Card :userCard="activeCard" />
     <CardStack />
     <a href="#" class="cta">Add New Card</a>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -27,25 +27,23 @@ export default {
 
 <style lang="scss" scoped>
 a.cta {
+  align-items: center;
+  border: 0.125rem solid #000;
+  border-radius: 0.5rem;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
-  height: 4rem;
+  -ms-flex-pack: center;
   font-size: 1.2rem;
-  text-transform: uppercase;
   font-weight: 700;
-  text-decoration: none;
-  color: #000;
-  border: 0.125rem solid #000;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 0.5rem;
+  height: 4rem;
+  justify-content: center;
   margin: 2rem 0;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 </style>
