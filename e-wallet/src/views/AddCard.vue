@@ -1,20 +1,20 @@
 <template>
-  <div class="home-view">
-    <Top h1="E-WALLET" cardType="ACTIVE CARD" />
+  <div class="add-card-view">
+    <Top h1="ADD NEW CARD" cardType="NEW CARD" />
     <Card />
-    <CardStack />
+    <CardForm />
   </div>
 </template>
 
 <script>
 import Top from '../components/Top'
 import Card from '../components/Card'
-import CardStack from '../components/CardStack'
+import CardForm from '../components/CardForm'
 export default {
   components: {
     Top,
     Card,
-    CardStack,
+    CardForm,
   },
 }
 </script>
