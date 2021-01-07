@@ -1,11 +1,7 @@
 <template>
-  <div class="card-stack-wrapper">
-    CARD STACK COMPONENT
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-  </div>
+  <section class="card-stack">
+    <Card v-for="card of cards" :key="card.id" :userCard="card" />
+  </section>
 </template>
 
 <script>
@@ -14,7 +10,18 @@ export default {
   components: {
     Card,
   },
+  computed: {
+    cards() {
+      return this.$root.cards
+    },
+  },
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.card-stack {
+  margin: 2rem 0 12rem;
+  display: grid;
+  grid-auto-rows: 4rem;
+}
+</style>
