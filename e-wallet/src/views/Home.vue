@@ -1,9 +1,9 @@
 <template>
   <main id="home">
-    <Top h1="E-WALLET" cardType="ACTIVE CARD" />
+    <Top h1="E-wallet" cardType="Active card" />
     <Card :userCard="activeCard" />
     <CardStack />
-    <a href="#" class="cta">Add New Card</a>
+    <a href="/add" class="cta">Add New Card</a>
   </main>
 </template>
 
@@ -17,10 +17,10 @@ export default {
     Card,
     CardStack,
   },
-  data() {
-    return {
-      activeCard: this.$root.cards[0],
-    }
+  computed: {
+    activeCard() {
+      return this.$root.activeCard
+    },
   },
 }
 </script>
@@ -30,14 +30,10 @@ a.cta {
   align-items: center;
   border: 0.125rem solid #000;
   border-radius: 0.5rem;
-  -webkit-box-align: center;
-  -webkit-box-pack: center;
   color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
   font-size: 1.2rem;
   font-weight: 700;
   height: 4rem;
