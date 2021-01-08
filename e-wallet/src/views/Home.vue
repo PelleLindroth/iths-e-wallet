@@ -3,7 +3,7 @@
     <Top h1="E-wallet" cardType="Active card" />
     <Card :userCard="activeCard" />
     <CardStack />
-    <a href="/add" class="cta">Add New Card</a>
+    <button @click="showAddView">Add New Card</button>
   </main>
 </template>
 
@@ -22,24 +22,10 @@ export default {
       return this.$root.activeCard
     },
   },
+  methods: {
+    showAddView() {
+      this.$router.push('/add')
+    },
+  },
 }
 </script>
-
-<style lang="scss" scoped>
-a.cta {
-  align-items: center;
-  border: 0.125rem solid #000;
-  border-radius: 0.5rem;
-  color: #000;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1.2rem;
-  font-weight: 700;
-  height: 4rem;
-  justify-content: center;
-  margin: 2rem 0;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-</style>

@@ -21,5 +21,25 @@
   max-width: 24rem;
   padding: 1rem;
   -webkit-font-smoothing: antialiased;
+
+  button {
+    align-items: center;
+    background-color: #fff;
+    border: 0.125rem solid #000;
+    border-radius: 0.5rem;
+    color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    height: 4rem;
+    justify-content: center;
+    margin: 2rem 0;
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+  }
 }
 </style>
