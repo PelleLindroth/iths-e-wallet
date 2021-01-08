@@ -8,7 +8,19 @@ Vue.config.productionTip = false
 new Vue({
   data() {
     return {
+      activeCard: cards[0],
       cards: cards
+    }
+  },
+  methods: {
+    addCard(card) {
+      this.cards.push(card)
+    },
+    deleteCard(id) {
+      this.cards = this.cards.filter(card => card.id != id)
+    },
+    setActiveCard(id) {
+      this.activeCard = this.cards.find(card => card.id == id)
     }
   },
   router,
