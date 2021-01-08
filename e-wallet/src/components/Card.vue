@@ -3,6 +3,7 @@
     <header>
       <img src="../../assets/chip-light.svg" alt="chip" class="chip" />
       <img
+        v-if="userCard.vendor != 'blank'"
         :src="require(`../../assets/vendor-${userCard.vendor}.svg`)"
         :alt="vendor"
       />
@@ -31,6 +32,9 @@ export default {
       ${this.userCard.number.slice(8, 12)}
       ${this.userCard.number.slice(12, 16)}
       `
+    },
+    holder() {
+      return this.userCard.holder
     },
     validDate() {
       return `${this.userCard.validMonth} / ${this.userCard.validYear}`
@@ -63,17 +67,17 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  background: #eee;
-  border-radius: 0.6rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
-  display: grid;
   max-width: 24rem;
+  height: 14rem;
+  border-radius: 0.6rem;
+  background: #eee;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+  display: grid;
   gap: 0.5rem 0;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 2.8rem;
-  height: 14rem;
-  padding: 1rem;
   text-shadow: -1px -1px 2px hsla(0, 0%, 100%, 0.4);
 
   header {
@@ -175,5 +179,14 @@ export default {
     ),
     #222;
   color: #fff;
+}
+
+.blank {
+  background: linear-gradient(
+      237.75deg,
+      hsla(0, 0%, 100%, 0.24),
+      hsla(0, 0%, 100%, 0)
+    ),
+    #d0d0d0;
 }
 </style>
