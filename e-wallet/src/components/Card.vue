@@ -1,5 +1,5 @@
 <template>
-  <article class="card" :class="userCard.vendor">
+  <article class="card" :class="userCard.vendor" @click="setActive">
     <header>
       <img src="../../assets/chip-light.svg" alt="chip" class="chip" />
       <img
@@ -48,6 +48,11 @@ export default {
         default:
           return ''
       }
+    },
+  },
+  methods: {
+    setActive() {
+      this.$emit('setActive', this.userCard.id)
     },
   },
   props: {
