@@ -1,6 +1,12 @@
 <template>
   <section class="card-stack">
-    <Card v-for="card of cards" :key="card.id" :userCard="card" />
+    <Card
+      v-for="(card, index) of cards"
+      :key="card.id"
+      :userCard="card"
+      @setActive="setActiveCard"
+      :style="{ zIndex: index }"
+    />
   </section>
 </template>
 
@@ -13,6 +19,11 @@ export default {
   computed: {
     cards() {
       return this.$root.cards
+    },
+  },
+  methods: {
+    setActiveCard(id) {
+      this.$root.setActiveCard(id)
     },
   },
 }
