@@ -18,8 +18,7 @@ export default {
 .top {
   display: flex;
   flex-direction: column;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
+  text-transform: uppercase;
 
   h1,
   p {
