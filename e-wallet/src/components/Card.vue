@@ -1,21 +1,21 @@
 <template>
-  <article class="card" :class="userCard.vendor" @click="setActive">
+  <article class="card" :class="card.vendor" @click="setActive">
     <header>
       <img src="../../assets/chip-light.svg" alt="chip" class="chip" />
       <img
-        v-if="userCard.vendor != 'blank'"
-        :src="require(`../../assets/vendor-${userCard.vendor}.svg`)"
+        v-if="card.vendor != 'blank'"
+        :src="require(`../../assets/vendor-${card.vendor}.svg`)"
         :alt="vendor"
       />
     </header>
     <section class="number">{{ formattedNumber }}</section>
     <section class="info">
       <aside class="holder">
-        <span>CARDHOLDER NAME</span>
-        <p>{{ userCard.holder }}</p>
+        <span>Cardholder name</span>
+        <p>{{ card.holder }}</p>
       </aside>
       <aside class="valid">
-        <span>VALID UNTIL</span>
+        <span>Valid until</span>
         <p>{{ validDate }}</p>
       </aside>
     </section>
@@ -27,20 +27,20 @@ export default {
   computed: {
     formattedNumber() {
       return `
-      ${this.userCard.number.slice(0, 4)}
-      ${this.userCard.number.slice(4, 8)}
-      ${this.userCard.number.slice(8, 12)}
-      ${this.userCard.number.slice(12, 16)}
+      ${this.card.number.slice(0, 4)}
+      ${this.card.number.slice(4, 8)}
+      ${this.card.number.slice(8, 12)}
+      ${this.card.number.slice(12, 16)}
       `
     },
     holder() {
-      return this.userCard.holder
+      return this.card.holder
     },
     validDate() {
-      return `${this.userCard.validMonth} / ${this.userCard.validYear}`
+      return `${this.card.validMonth} / ${this.card.validYear}`
     },
     vendor() {
-      switch (this.userCard.vendor) {
+      switch (this.card.vendor) {
         case 'bitcoin':
           return 'Bitcoin Inc'
         case 'blockchain':
@@ -56,11 +56,11 @@ export default {
   },
   methods: {
     setActive() {
-      this.$emit('setActive', this.userCard.id)
+      this.$emit('setActive', this.card.id)
     },
   },
   props: {
-    userCard: Object,
+    card: Object,
   },
 }
 </script>
@@ -108,7 +108,7 @@ export default {
   }
 
   .number {
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     letter-spacing: 0.05rem;
     padding: 0.5rem 0 0;
     text-transform: uppercase;

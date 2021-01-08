@@ -116,18 +116,18 @@ export default {
   select {
     border: 1px solid #000;
     border-radius: 0.25rem;
-    padding: 0.5rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 1rem;
     height: 2.6rem;
     margin: 0 0 0.8rem;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-size: 1rem;
+    padding: 0.5rem;
     width: 100%;
   }
 
   label {
-    padding: 0.25rem 0;
     font-size: 0.7rem;
+    padding: 0.25rem 0;
     text-transform: uppercase;
   }
 

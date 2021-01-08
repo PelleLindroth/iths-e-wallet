@@ -1,7 +1,7 @@
 <template>
   <main id="home">
     <Top h1="E-wallet" cardType="Active card" />
-    <Card v-if="this.$root.cards.length" :userCard="activeCard" />
+    <Card v-if="this.$root.cards.length" :card="activeCard" />
     <button
       v-if="this.$root.cards.length"
       @click="deleteCard"
@@ -10,7 +10,9 @@
       Delete this card
     </button>
     <CardStack />
-    <button @click="showAddView" class="footer-button">Add New Card</button>
+    <button @click="showAddView" class="footer-button" ref="button">
+      Add New Card
+    </button>
   </main>
 </template>
 
@@ -18,6 +20,7 @@
 import Top from '../components/Top'
 import Card from '../components/Card'
 import CardStack from '../components/CardStack'
+
 export default {
   components: {
     Top,
@@ -32,6 +35,11 @@ export default {
   methods: {
     deleteCard() {
       this.$root.deleteCard(this.activeCard.id)
+
+      if (!this.$root.cards.length) {
+        console.log('here')
+        this.$refs.button.style.marginTop = 'auto'
+      }
     },
     showAddView() {
       this.$router.push('/add')
@@ -50,7 +58,7 @@ button.delete-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 700;
   height: 2rem;
   justify-content: center;
@@ -58,6 +66,6 @@ button.delete-button {
   outline: none;
   text-decoration: none;
   text-transform: uppercase;
-  width: 50%;
+  width: 45%;
 }
 </style>

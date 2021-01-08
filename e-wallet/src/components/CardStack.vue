@@ -3,7 +3,7 @@
     <Card
       v-for="(card, index) of cards"
       :key="card.id"
-      :userCard="card"
+      :card="card"
       @setActive="setActiveCard"
       :style="{ zIndex: index }"
     />

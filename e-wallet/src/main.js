@@ -9,7 +9,7 @@ new Vue({
   data() {
     return {
       activeCard: cards[0],
-      cards: cards
+      cards
     }
   },
   methods: {

@@ -1,13 +1,13 @@
 <template>
   <main class="add-card">
     <Top h1="ADD NEW CARD" cardType="NEW CARD" />
-    <Card :userCard="newCard" />
+    <Card :card="newCard" />
     <CardForm
+      @editNumber="editNumber"
       @editHolder="editHolder"
       @editMonth="editMonth"
-      @editNumber="editNumber"
-      @editVendor="editVendor"
       @editYear="editYear"
+      @editVendor="editVendor"
     />
     <div class="error-container">
       <p v-show="error" class="error-message">
@@ -23,6 +23,7 @@ import { uid } from 'uid'
 import Top from '../components/Top'
 import Card from '../components/Card'
 import CardForm from '../components/CardForm'
+
 export default {
   components: {
     Top,
@@ -55,23 +56,24 @@ export default {
 
       this.$router.push('/')
     },
+    editNumber(number) {
+      this.newCard.number = number
+    },
     editHolder(holder) {
       this.newCard.holder = holder
     },
     editMonth(month) {
       this.newCard.validMonth = month
     },
-    editNumber(number) {
-      this.newCard.number = number
+    editYear(year) {
+      this.newCard.validYear = year
     },
     editVendor(vendor) {
       this.newCard.vendor = vendor
     },
-    editYear(year) {
-      this.newCard.validYear = year
-    },
     validateInput() {
       this.error = false
+
       if (this.newCard.number.length < 16) {
         this.errorMessage = 'Card number must be 16 digits'
         this.error = true
@@ -81,7 +83,7 @@ export default {
         this.error = true
         return false
       } else if (!this.newCard.holder.length) {
-        this.errorMessage = 'Please submit card holder'
+        this.errorMessage = 'Please submit a cardholder name'
         this.error = true
         return false
       } else if (Number.isNaN(+this.newCard.validMonth)) {
@@ -96,9 +98,9 @@ export default {
         this.errorMessage = 'Please submit card vendor'
         this.error = true
         return false
-      } else {
-        return true
       }
+
+      return true
     },
   },
 }
