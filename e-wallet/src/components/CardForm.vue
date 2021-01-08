@@ -23,7 +23,6 @@
     <label for="year" class="col-1">Year</label>
     <select @change="editMonth" name="month" class="col-1" v-model="validMonth">
       <option hidden selected></option>
-      <option value="">01</option>
       <option value="01">01</option>
       <option value="02">02</option>
       <option value="03">03</option>
