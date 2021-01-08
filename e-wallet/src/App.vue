@@ -22,7 +22,7 @@
   padding: 1rem;
   -webkit-font-smoothing: antialiased;
 
-  button {
+  button.footer-button {
     align-items: center;
     background-color: #fff;
     border: 0.125rem solid #000;

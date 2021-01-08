@@ -14,7 +14,7 @@
         {{ errorMessage }}
       </p>
     </div>
-    <button @click="addCard">Add Card</button>
+    <button @click="addCard" class="footer-button">Add Card</button>
   </main>
 </template>
 
@@ -48,6 +48,11 @@ export default {
 
       this.newCard.id = uid(12)
       this.$root.addCard(this.newCard)
+
+      if (this.$root.cards.length == 1) {
+        this.$root.setActiveCard(this.newCard.id)
+      }
+
       this.$router.push('/')
     },
     editHolder(holder) {

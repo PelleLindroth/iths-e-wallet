@@ -18,6 +18,7 @@ new Vue({
     },
     deleteCard(id) {
       this.cards = this.cards.filter(card => card.id != id)
+      this.activeCard = this.cards[0]
     },
     setActiveCard(id) {
       this.activeCard = this.cards.find(card => card.id == id)
